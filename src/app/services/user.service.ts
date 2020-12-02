@@ -6,11 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
+  private baseURI: string = "https://reqres.in/api";
+
   constructor(private http: HttpClient) { 
-    this.buscar()
   }
 
-  buscar() {
-    return this.http.get('https://reqres.in/api/users?page=2');
+  buscar(pagina: number) {
+    return this.http.get(`${this.baseURI}/users?page=${pagina}`);
   }
 }
