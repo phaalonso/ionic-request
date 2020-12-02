@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,18 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public usuarios: any[] = [];
+
+  constructor(public userService: UserService) {
+    this.buscar();
+  }
+
+  buscar() {
+    this.userService.buscar().subscribe((dados: any) => {
+      console.log(dados)
+      this.usuarios = dados.data;
+    });
+
+  }
 
 }
