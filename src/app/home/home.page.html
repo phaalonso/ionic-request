@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Blank </ion-title>
+    <ion-title> Usuários </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -21,6 +21,8 @@
         <span> {{usuario.first_name}} </span>
       </ion-item>
     </ion-list>
+
+    <ion-button (click)="cadastrar()">Cadastrar</ion-button>
 
     <div id="navegacao">
       <span> {{pagina}}/{{totalPages}} </span>

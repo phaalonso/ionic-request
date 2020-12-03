@@ -34,6 +34,18 @@ export class HomePage {
     });
   }
 
+  cadastrar() {
+    const user = {
+        nome: "Pedro",
+        job: "leader"
+    };
+    this.userService.create(user).subscribe(sucess => {
+      console.log(sucess);
+    }, error => {
+      console.log(error);
+    });
+  }
+
   async mostrarToast(message: string) {
     const toast = await this.toastController.create({
       message,
