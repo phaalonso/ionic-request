@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  private baseURI: string = "https://reqres.in/api";
+  private baseURI = 'https://reqres.in/api';
 
   private httpOptions = {
     headers: new HttpHeaders({

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { TestObject } from 'protractor/built/driverProviders';
+import { FilmeService } from '../services/filme.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -14,8 +15,16 @@ export class HomePage {
   public pagina: number = 1;
   public totalPages: number;
 
-  constructor(public userService: UserService, public toastController: ToastController) {
+  constructor(private userService: UserService, private toastController: ToastController, private filmeService: FilmeService) {
     this.buscar(this.pagina);
+  }
+
+  getFilmes() {
+    this.filmeService.get().subscribe(sucess => {
+      console.log(sucess)
+    }, error => {
+      console.log(error)
+    })
   }
 
   buscar(pagina: number) {
